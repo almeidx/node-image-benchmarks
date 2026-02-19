@@ -1,0 +1,36 @@
+{
+  "name": "node-image-benchmarks",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "bench": "NODE_OPTIONS=--expose-gc node dist/bench.js",
+    "bench:image-buffer": "NODE_OPTIONS=--expose-gc node dist/bench.js --workload image-buffer",
+    "bench:image-stream": "NODE_OPTIONS=--expose-gc node dist/bench.js --workload image-stream",
+    "bench:kitchen-sink": "NODE_OPTIONS=--expose-gc node dist/bench.js --workload kitchen-sink",
+    "bench:text-layout": "NODE_OPTIONS=--expose-gc node dist/bench.js --workload text-layout",
+    "bench:format": "NODE_OPTIONS=--expose-gc node dist/bench.js --workload encode-png --workload encode-webp --workload encode-svg",
+    "bench:save-images": "NODE_OPTIONS=--expose-gc node dist/bench.js --save-images",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.0",
+    "@resvg/resvg-js": "^2.6.2",
+    "@takumi-rs/core": "^0.68.8",
+    "@takumi-rs/helpers": "^0.68.8",
+    "canvas": "^3.1.2",
+    "react": "^19.1.1",
+    "satori": "^0.19.2",
+    "skia-canvas": "^3.0.8"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.13",
+    "@types/react": "^19.1.10",
+    "mitata": "^1.0.34",
+    "typescript": "^5.9.2"
+  },
+  "packageManager": "pnpm@10.30.0",
+  "engines": {
+    "node": ">=20"
+  }
+}
